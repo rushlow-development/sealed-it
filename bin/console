@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+
+use RushlowDevelopment\SealedIt\Command\EncryptFilesCommand;
+use RushlowDevelopment\SealedIt\Command\GenerateKeyCommand;
+use RushlowDevelopment\SealedIt\Command\TestCommand;
+use Symfony\Component\Console\Application;
+
+if (!is_file(dirname(__DIR__).'/vendor/autoload_runtime.php')) {
+    throw new LogicException('Symfony Runtime is missing. Try running "composer require symfony/runtime".');
+}
+
+require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
+
+return static function () {
+    $app = new Application();
+    $app->add(new TestCommand());
+    $app->add(new EncryptFilesCommand());
+    $app->add(new GenerateKeyCommand());
+
+    return $app;
+};
