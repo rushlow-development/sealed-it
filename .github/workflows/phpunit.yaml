@@ -1,0 +1,27 @@
+name: PHPUnit Tests
+
+on:
+    push:
+        branches:
+            - main
+
+    pull_request:
+    release:
+
+jobs:
+    stable-tests:
+        name: Stable 8.0
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Set PHP Version
+                run: sudo update-alternatives --set php /usr/bin/php8.0
+
+            -   name: Checkout
+                uses: actions/checkout@v2
+
+            -   name: Install Composer Dependencies
+                run: composer install --prefer-dist --no-progress
+
+            -   name: Unit Tests
+                run: bin/phpunit -c $GITHUB_WORKSPACE/phpunit.xml.dist --testsuite unit
