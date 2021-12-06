@@ -1,6 +1,7 @@
 #!/usr/bin/env php
 <?php
 
+use RushlowDevelopment\SealedIt\Command\DecryptFilesCommand;
 use RushlowDevelopment\SealedIt\Command\EncryptFilesCommand;
 use RushlowDevelopment\SealedIt\Command\GenerateKeyCommand;
 use RushlowDevelopment\SealedIt\Command\TestCommand;
@@ -14,8 +15,8 @@ require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
 
 return static function () {
     $app = new Application();
-    $app->add(new TestCommand());
     $app->add(new EncryptFilesCommand());
+    $app->add(new DecryptFilesCommand());
     $app->add(new GenerateKeyCommand());
 
     return $app;
