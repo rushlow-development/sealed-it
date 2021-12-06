@@ -1,0 +1,20 @@
+{
+    "name": "rushlow-development/sealed-it",
+    "description": "Simple file encryption",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "RushlowDevelopment\\SealedIt\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jesse Rushlow",
+            "email": "jr@rushlow.dev"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    }
+}

@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+    workspace:
+        image: 'rushlowdev/php-cli:8.0-cli'
+        volumes:
+            - ./:/var/htdocs
+        tty: true
